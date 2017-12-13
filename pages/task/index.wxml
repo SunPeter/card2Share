@@ -1,0 +1,64 @@
+<!--task.wxml-->
+<view class="container task">
+    <view class="page__bd">
+    	<view class="weui-cells__title">帮助类型</view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__bd">
+                <picker style="padding-left: 15px;" bindchange="bindTypeChange" value="{{task.type}}" range="{{typeList}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{typeList[task.type]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请描述您的任务，譬如大致内容，尺寸重量等信息，方便帮助者参考（但请勿填写关键信息）" bindblur="bindTitle"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">描述</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入您的关键信息，譬如取号码，真实姓名等等，请确保信息真实无误。（只有确认帮助后帮助人才能看到此信息）" style="height: 5em"  bindblur="bindDesciption"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">帮助地点</view>
+        <view class="weui-cell_map">
+            <view class="weui-cell__bd">
+                <a class="weui-btn weui-btn_plain-primary" bindtap="selectDes">在地图上选择</a>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" style="height:3em" placeholder="若地址不完整，请手动补充" value="{{task.des.name}}" bindblur="bindDesInput"/>
+            </view>
+        </view>
+        <view class="weui-cells__title">我的位置</view>
+        <view class="weui-cell_map">
+            <view class="weui-cell__bd">
+                <a class="weui-btn weui-btn_plain-primary" bindtap="selectOrigin">在地图上选择</a>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" style="height:3em" placeholder="若地址不完整，请手动补充" value="{{task.origin.name}}" bindblur="bindOriginInput"/>
+            </view>
+        </view>
+        <view class="weui-cells__title">奖励（任务完成后帮助者将获得金币）</view>
+        <view class="weui-cell weui-cell_slider">
+            <view class="weui-cell__bd">
+                <slider bindchange="rewardChange" min="0" max="10" show-value/>
+            </view>
+        </view>
+        <view class="weui-cells__title">任务有效期（单位：分钟）</view>
+        <view class="weui-cell weui-cell_slider">
+            <view class="weui-cell__bd">
+                <slider bindchange="expireChange" min="0" max="240" step='30' show-value/>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="createTask">发布任务</button>
+        </view>
+    </view>
+</view>

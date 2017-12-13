@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/login/index",
+    "pages/sign/index",
+    "pages/task/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

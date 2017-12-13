@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+    <form bindsubmit="formSubmit">
+        <view class="userinfo">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+           <view class="weui-cell weui-cell_input weui-cell_vcode">
+               <view class="weui-cell__hd">
+                   <view class="weui-label">手机号</view>
+               </view>
+               <view class="weui-cell__bd">
+                   <input class="weui-input" bindinput="bindPhoneInput" type="number" maxlength="11" placeholder="请输入手机号" />
+               </view>
+               <view class="weui-cell__ft">
+                   <view class="weui-vcode-btn">获取验证码</view>
+               </view>
+           </view>
+        </view>
+        <view class="btn-area">
+            <button class="weui-btn weui-btn_plain-primary" formType="submit">提交</button>
+        </view>
+    </form>
+</view>

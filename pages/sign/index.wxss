@@ -1,0 +1,35 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.userinfo-phone {
+  margin:20rpx auto 0;
+  text-align: center;
+  border-bottom: 1rpx solid #333;
+}
+
+.btn-area {
+    box-sizing: border-box;
+    padding: 20rpx 10rpx 10rpx;
+    text-align: center;
+}
+.weui-btn_plain-primary{
+    background-color: transparent;
+    color: #1aad19;
+    border: 1px solid #1aad19;
+}
