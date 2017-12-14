@@ -11,10 +11,13 @@ Page({
               code: code
             }
           }).then(res => {
-            if (res) {
-              app.globalData.userInfo = res
+            console.log('app globalData', res)
+            let hasLogin = res.hasLogin
+            delete res.hasLogin
+            app.globalData.userInfo = res
+            if (hasLogin) {
               wx.redirectTo({
-                url: '../task/index'
+                url: '../list/index'
               })
             } else {
               wx.redirectTo({

@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-tab">
+          <view class="weui-navbar">
+              <block wx:for="{{tabs}}" wx:key="*this">
+                  <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                      <view class="weui-navbar__title">{{item}}</view>
+                  </view>
+              </block>
+          </view>
+      </view>
+      <view class="weui-panel__bd">
+          <block wx:for="{{list}}" wx:key="*this">
+              <navigator url="../detail/index?id={{item._id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                  <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                      <image class="weui-media-box__thumb" src="../../img/{{type[item.type]}}.svg" />
+                  </view>
+                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                      <view class="weui-media-box__title">{{item.title}}</view>
+                      <view class="weui-media-box__desc">{{item.distance}} {{item.coin}}金币</view>
+                  </view>
+              </navigator>
+          </block>
+      </view>
+  </view>
+</view>

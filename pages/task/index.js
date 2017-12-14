@@ -5,13 +5,13 @@ Page({
   data: {
     typeList: ['快递', '小吃', '生活用品'],
     task: {
-      type: 0, 
+      type: 0,
       des: {name: ''},
       origin: {name: ''}
     }
   },
   onLoad: function () {
-    
+
   },
   bindTitle: function(e) {
     let task = this.data.task
@@ -82,7 +82,7 @@ Page({
     if (!userInfo || !userInfo.openid) {
       wx.showToast({
         title: '登录异常',
-        icon: 'success',
+        icon: 'fail',
         duration: 2000
       })
       return
@@ -94,17 +94,15 @@ Page({
       method: "POST",
       dataType: "JSON"
     }).then((res) => {
-      console.log(res)
       wx.showToast({
         title: '发布成功',
         icon: 'success',
         duration: 2000
       })
     }, (err) => {
-      console.log(err)
       wx.showToast({
         title: '发布失败',
-        icon: 'success',
+        icon: 'fail',
         duration: 2000
       })
     })

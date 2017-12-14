@@ -7,16 +7,15 @@ Page({
   },
   //事件处理函数
   formSubmit: function() {
-      console.log(this.data.userInfo);
-      wx.setStorageSync('test', JSON.stringify(this.data.userInfo))
       util.request({
-          method: "GET",
-          url: "https://sunshengda.com"
+          method: "POST",
+          data: this.data.userInfo,
+          url: "https://sunshengda.com/user/sign"
       }).then(data => {
           console.log(data);
       })
   },
-  bindPhoneInput: function(e) {
+  bindPhone: function(e) {
       Object.assign(this.data.userInfo, {
           phone: e.detail.value
       })
@@ -25,12 +24,14 @@ Page({
       })
   },
   onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+    let self = this
+    let userInfo = app.globalData.userInfo
+    if (!userInfo) {
+      console.error('获取微信用户信息失败');return
+    }
+    util.getUserInfo().then(res => {
+      self.setData({
+        userInfo: Object.assign(userInfo, res.userInfo)
       })
     })
   }

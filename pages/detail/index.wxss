@@ -1,0 +1,8 @@
+.weui-btn_plain-primary{
+    background-color: transparent;
+    color: #1aad19;
+    border: 1px solid #1aad19;
+}
+.weui-cell_map{
+	padding-left:15px;
+}

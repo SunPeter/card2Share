@@ -1,0 +1,9 @@
+.weui-navbar {
+  position: static;
+}
+.weui-navbar__item {
+  padding: 5px 0;
+}
+.weui-media-box__desc {
+
+}

@@ -11,7 +11,7 @@
                    <view class="weui-label">手机号</view>
                </view>
                <view class="weui-cell__bd">
-                   <input class="weui-input" bindinput="bindPhoneInput" type="number" maxlength="11" placeholder="请输入手机号" />
+                   <input class="weui-input" bindblur="bindPhone" type="number" maxlength="11" placeholder="请输入手机号" />
                </view>
                <view class="weui-cell__ft">
                    <view class="weui-vcode-btn">获取验证码</view>

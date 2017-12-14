@@ -1,0 +1,70 @@
+<!--task.wxml-->
+<view class="container task">
+    <view class="page__bd">
+    	<view class="weui-cells__title">帮助类型</view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__bd">
+                <picker disabled style="padding-left: 15px;" bindchange="bindTypeChange" value="{{task.type}}" range="{{typeList}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{typeList[task.type]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input disabled value="{{task.title}}" class="weui-input"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">描述</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea wx:if="{{accept}}" class="weui-textarea"  disabled value="{{task.description}}"  style="max-height: 5em"/>
+                    <p wx:else="{{accept}}">只有确认帮忙，才能看到具体描述信息</p>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">帮助地点</view>
+        <view class="weui-cell_map">
+            <view class="weui-cell__bd">
+                <map longitude="{{task.destination.longitude}}" latitude="{{task.destination.latitude}}"></map>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" style="height:3em" disabled value="{{task.destination.name}}"/>
+            </view>
+        </view>
+        <view class="weui-cells__title">我的位置</view>
+        <view class="weui-cell_map">
+            <view class="weui-cell__bd">
+                <map longitude="{{task.origin.longitude}}" latitude="{{task.origin.latitude}}"></map>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" style="height:3em" disabled value="{{task.origin.name}}"/>
+            </view>
+        </view>
+        <view class="weui-cells__title">奖励（任务完成后帮助者将获得金币）</view>
+        <view class="weui-cell weui-cell_slider">
+            <view class="weui-cell__bd">
+                <slider bindchange="rewardChange" disabled min="0" max="10" show-value value="{{task.coin}}"/>
+            </view>
+        </view>
+        <view class="weui-cells__title">任务有效期（单位：分钟）</view>
+        <view class="weui-cell weui-cell_slider">
+            <view class="weui-cell__bd">
+                <slider bindchange="expireChange" disabled min="0" max="240" step='30' show-value value="{{task.expire}}"/>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <view wx:if="{{accept}}">
+                <button class="weui-btn" type="primary" bindtap="callPublisher">电话联系</button>
+            </view>
+            <view wx:else>
+                <button class="weui-btn" type="primary" bindtap="acceptTask">帮助Ta</button>
+            </view>
+        </view>
+    </view>
+</view>

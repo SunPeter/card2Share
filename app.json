@@ -1,8 +1,10 @@
 {
   "pages":[
     "pages/login/index",
+    "pages/list/index",
     "pages/sign/index",
-    "pages/task/index"
+    "pages/task/index",
+    "pages/detail/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
