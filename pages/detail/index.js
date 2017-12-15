@@ -41,7 +41,8 @@ Page({
     util.request({
       url: `https://sunshengda.com/task/${task._id}`,
       data: {
-        helper: userInfo.openid
+        helper: userInfo.openid,
+        status: 1
       },
       method: "PUT",
       dataType: "JSON"
@@ -49,7 +50,12 @@ Page({
       wx.showToast({
         title: '已接收，如有疑问，可联系发布人确认',
         icon: 'success',
-        duration: 2000
+        duration: 2000,
+        complete: () => {
+          wx.redirectTo({
+            url: '../zone/index'
+          })
+        }
       })
     }, (err) => {
       wx.showToast({

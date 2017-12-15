@@ -6,3 +6,8 @@
 .weui-cell_map{
 	padding-left:15px;
 }
+map {
+	box-sizing:border-box;
+	width: 100%;
+	padding-right:15px;
+}
