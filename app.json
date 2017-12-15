@@ -4,7 +4,8 @@
     "pages/list/index",
     "pages/sign/index",
     "pages/task/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/zone/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

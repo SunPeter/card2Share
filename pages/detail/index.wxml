@@ -63,7 +63,7 @@
                 <button class="weui-btn" type="primary" bindtap="callPublisher">电话联系</button>
             </view>
             <view wx:else>
-                <button class="weui-btn" type="primary" bindtap="acceptTask">帮助Ta</button>
+                <button class="weui-btn" type="primary" bindtap="acceptTask">帮助 Ta</button>
             </view>
         </view>
     </view>

@@ -1,6 +1,11 @@
 <!--index.wxml-->
 <view class="container">
     <view class="weui-panel weui-panel_access">
+      <view class="userinfo">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <text class="userinfo-coin">金币数 {{userInfo.coin}}</text>
+      </view>
       <view class="weui-tab">
           <view class="weui-navbar">
               <block wx:for="{{tabs}}" wx:key="*this">
@@ -13,25 +18,18 @@
       <view class="weui-panel__bd">
           <block wx:for="{{list}}" wx:key="*this">
               <navigator url="../detail/index?id={{item._id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                  <view class="task_status">
+                      <image src="../../img/status{{item.status}}.svg" />
+                  </view>
                   <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                       <image class="weui-media-box__thumb" src="../../img/{{type[item.type]}}.svg" />
                   </view>
                   <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                       <view class="weui-media-box__title">{{item.title}}</view>
-                      <view class="weui-media-box__desc">{{item.distance}} {{item.coin}}金币</view>
+                      <view class="weui-media-box__desc">{{item.coin}}金币</view>
                   </view>
               </navigator>
           </block>
       </view>
-      <navigator url="../task/index" class="submit_help">
-        <view>
-          <image src="../../img/help1.svg" />
-        </view>
-      </navigator>
-      <navigator url="../zone/index" class="me">
-        <view>
-          <image src="{{userInfo.avatarUrl}}" />
-        </view>
-      </navigator>
   </view>
 </view>

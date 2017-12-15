@@ -11,7 +11,6 @@ Page({
               code: code
             }
           }).then(res => {
-            console.log('app globalData', res)
             let hasLogin = res.hasLogin
             delete res.hasLogin
             app.globalData.userInfo = res
